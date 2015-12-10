@@ -30,7 +30,7 @@ else:
 		posts_replied_to = filter(None, posts_replied_to)
 
 # Praw call to connect to our subreddit of choice!
-subreddit = r.get_subreddit("learnrubyonrails")
+subreddit = r.get_subreddit("ENTER_SUBREDDIT_NAME")
 
 # Loop through the new submissions. We're only grabbing 5 each time
 for submission in subreddit.get_new(limit=5):
@@ -38,7 +38,7 @@ for submission in subreddit.get_new(limit=5):
 	if submission.id not in posts_replied_to:
 		# If not, let's make our call to slack to post the submission and store
 		#the submission.id in our array of posts we've replied to
-		sc.api_call("chat.postMessage", username="new post bot", channel="#general", text=submission.permalink, unfurl_links="true")
+		sc.api_call("chat.postMessage", username="new post bot", channel="ENTER_SLACK_CHANNEL", text=submission.permalink, unfurl_links="true")
 		posts_replied_to.append(submission.id)
 
 # Open our text file and write out the new submission.id so we don't 
