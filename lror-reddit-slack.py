@@ -4,7 +4,7 @@ import os
 from slackclient import SlackClient
 
 # Connection to slack
-token = "xoxp-16123418901-16127757958-16127832566-51ec581e10"
+token = "SLACK_API_TOKEN"
 sc = SlackClient(token)
 
 # Create user agent for Reddit api
